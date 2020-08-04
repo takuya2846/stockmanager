@@ -1,0 +1,164 @@
+html {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+body {
+    margin: 100px auto;
+    text-align: center;
+}
+
+h1 {
+    margin: 100px 0 30px 0;
+    font-size: 3rem;
+    color: rgb(255, 125, 4);
+    text-shadow: 3px 3px 0 #000,
+    -3px 3px 0 #000,
+    3px -3px 0 #000,
+    -3px -3px 0 #000;;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+  }
+  
+  a:hover {
+    opacity: 0.7;
+    transition: .4s;
+  }
+
+input {
+    margin-top: 50px;
+}
+/* login,sign-up共通のcss */
+.user-info {
+    width: 40%;
+    height: 96px;
+    margin: 0 auto;
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+/* login.phpのcss */
+.login-window {
+    width: 800px;
+    height: 350px;
+    margin: 0 auto;
+    background: rgb(201, 201, 201);
+}
+
+.login-btn {
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+/* sign-up.phpのcss */
+.error {
+    width: 100%;
+    font-size: .7rem;
+    color: rgb(190, 0, 0);
+}
+
+.sign-up {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 30px;
+}
+
+.sign-up a {
+    font-size: 1.3rem;
+    color: rgb(197, 0, 0);
+}
+
+.sign-up-window {
+    width: 800px;
+    height: 550px;
+    margin: 0 auto;
+    background: rgb(201, 201, 201);
+}
+
+.user-info-text {
+    font-size: .85rem;
+}
+
+/* entry_check.phpのcss */
+.entry-container {
+    max-width: 650px;
+    height: 650px;
+    margin: 0 auto;
+    background: rgb(221, 221, 221);
+    border: 1px solid black;
+}
+
+.entry-container p {
+    margin-top: 45px;
+}
+
+.entry-container a {
+    display: inline-block;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 50px 30px 0 30px;
+    padding: 5px 10px;
+    background: rgb(170, 170, 170);
+    border: 2px solid rgba(0, 0, 0, .7);
+    border-radius: 3px;
+}
+
+.entry-container input {
+    padding: 5px 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: rgb(170, 170, 170);
+    border: 2px solid rgba(0, 0, 0, .7);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.entry-container input:hover {
+    opacity: 0.7;
+    transition: .4s;
+}
+
+/* logout-output.phpのcss */
+.logout-message {
+    padding-top: 50px;
+  }
+
+.logout-message p {
+    font-size: 1.5rem;
+}
+
+/* complete.phpのcss */
+.complete-container {
+    max-width: 650px;
+    height: 300px;
+    margin: 0 auto;
+    background: rgb(221, 221, 221);
+    border: 1px solid black;
+}
+
+.complete-container p {
+    margin-top: 55px;
+    font-size: 1.2rem;
+}
+
+.complete-container a {
+    display: inline-block;
+    font-size: 1.3rem;
+    margin-top: 50px;
+    padding: 5px 10px;
+    background: rgb(170, 170, 170);
+    border: 2px solid rgba(0, 0, 0, .7);
+    border-radius: 3px;
+}

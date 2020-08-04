@@ -1,0 +1,272 @@
+html {
+  width: 1400px;
+  margin: 0 auto;
+  background: rgb(173, 173, 173);
+}
+
+header {
+  max-width: 1400px;
+  margin-top: 70px;
+  background: white;
+  padding-bottom: 40px;
+}
+
+body {
+  width: 1400px;
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+  background: white;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+a:hover {
+  opacity: 0.7;
+  transition: .4s;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  font-size: 1.3rem;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+tr, th, td {
+  border: 1px solid black;
+}
+
+/* header.phpのcss */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header-content h1 {
+  margin-top: 20px;
+  margin-left: 20px;
+  border-bottom: 1px solid black;
+}
+
+.login-message {
+  margin-right: 500px;
+  font-size: 1.3rem;
+}
+
+.login-message strong{
+  font-size: 1.7rem;
+  border-bottom: 1px solid black;
+}
+
+.header-content a {
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 40px;
+  color: black;
+}
+
+.content-list ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.content-list li {
+  padding: 0 40px 0 40px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+/* index.phpのcss */
+.radix-list {
+  width: 1350px;
+  font-size: 1.3rem;
+  padding-bottom: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-list {
+  text-align: center;
+  margin: 30px 0 30px 0;
+}
+
+.page-list a {
+  margin: 0 15px;
+  padding: 5px;
+  border: 1px solid rgba(202, 202, 202, .6);
+  border-radius: 3px;
+  background: rgba(202, 202, 202, .6);
+}
+
+.order-check-btn {
+  float: right;
+  margin-right: 30px;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.trader-contents {
+  float: right;
+  margin: 50px 60px 0 0;
+}
+
+.trader-contents input{
+  cursor: pointer;
+}
+
+.edit-btn {
+  margin: 0 20px;
+}
+
+.radix-confirm-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 60px;
+}
+
+.radix-confirm-btn input {
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+/* radix.phpのcss */
+.check-btn-area {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.check-btn {
+  margin: 0 30px 30px 0;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+/* add.phpのcss */
+.trader_name {
+  height: 37px;
+}
+
+.add-table {
+  width: 1350px;
+  font-size: 1.3rem;
+  margin: 0 auto;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.add-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.add-btn input {
+  margin: 50px 60px 0 0;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.add-error {
+  font-size: 1.3rem;
+  color: red;
+}
+
+/* add_check.phpのcss */
+.add_check-title {
+  padding-top: 50px;
+  margin-left: 30px;
+  font-size: 1.3rem;
+}
+
+.add_check-title h1 {
+  display: inline-block;
+  width: 390px;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.add_check-table {
+  width: 1350px;
+  font-size: 1.3rem;
+  margin: 30px auto;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.add_check-table td {
+  border: 1px solid black;
+}
+
+.add_check-text {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 1.3rem;
+  background: rgba(112, 24, 24, 0.2);
+}
+
+.add_check-btn {
+  float: right;
+  margin: 30px 60px 0 0;
+}
+
+.add_check-btn a {
+  display: inline-block;
+  font-size: 1.3rem;
+  margin-right: 50px;
+  padding: 5px 10px;
+  background: rgba(170, 170, 170, .2);
+  border: 1px solid rgba(0, 0, 0, .7);
+  border-radius: 3px;
+}
+
+.add_check-btn input {
+  font-size: 1.3rem;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* trader_details.phpのcss */
+.trader-name {
+  width: 250px;
+  margin: 0 0 20px 60px;
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.jamp-btm {
+  float: right;
+  margin: 30px 60px 0 0;
+}
+
+.jamp-btm input {
+  cursor: pointer;
+}
+
+/* trader_edit.phpnのcss */
+.change-btn {
+  float: right;
+  margin: 30px 30px 0 0;
+}
+
+.change-btn input {
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.trader-error {
+  color: red;
+  margin: 20px 0 0 20px;
+}
