@@ -1,6 +1,12 @@
 <?php
 session_start();
 require('connect.php');
+
+//$_SESSION['user_id']がなかったらlogin-input.phpに戻る
+if (!isset($_SESSION['user_id'])) {
+  header('Location: login-input.php');
+  exit();
+}
 ?>
 
 <!DOCTYPE html>
