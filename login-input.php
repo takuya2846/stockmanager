@@ -16,7 +16,7 @@ if (!empty($_POST)) {
         if ($member) {
             $_SESSION['user_id'] = $member['user_id'];
             $_SESSION['time'] = time();
-            header('Location: index.php');
+            header('Location: stockmanager.php');
             exit();
         } else {
 //データベースの情報と一致しなかった時

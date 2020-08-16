@@ -21,7 +21,7 @@
           <p>ログアウトしました</p>
         </div>
       <?php endif; ?>
-      <a href="login-input.php">TOPへ</a>
+      <a href="index.php">TOPへ</a>
     </div>
   </main>
 </body>

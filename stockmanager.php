@@ -4,7 +4,7 @@ require('connect.php');
 
 //$_SESSION['user_id']がなかったらlogin-input.phpに戻る
 if (!isset($_SESSION['user_id'])) {
-  header('Location: login-input.php');
+  header('Location: index.php');
   exit();
 }
 ?>
@@ -62,9 +62,9 @@ if (!isset($_SESSION['user_id'])) {
   <div class="page-list">
   <?php for ($i = 1; $i <= $max_page; $i++) { ?>
     <?php if ($page == $i) { ?>
-      <a href="index.php?page=<?php print($i); ?>"><?php print($i); ?></a>
+      <a href="stockmanager.php?page=<?php print($i); ?>"><?php print($i); ?></a>
     <?php } else { ?>
-      <a href="index.php?page=<?php print($i); ?>"><?php print($i); ?></a>
+      <a href="stockmanager.php?page=<?php print($i); ?>"><?php print($i); ?></a>
     <?php } ?>
     <?php } ?>
   </div>
