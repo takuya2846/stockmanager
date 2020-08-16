@@ -10,23 +10,24 @@ if (!isset($_SESSION['stock'])) {
 
 // データベースへの登録
 if (!empty($_POST)) {
+
   $stocks = $db->prepare('INSERT INTO stocks SET stock_name=?,price=?,radix=?,trader_id=?');
-    for ($x = 0; $x < 5; $x++) {
-      if (isset($_SESSION['stock'][$x])) {
+      if (isset($_SESSION['stock'])) {
         echo $stocks->execute(array(
-          $_SESSION['stock'][$x][0],
-          $_SESSION['stock'][$x][1],
-          $_SESSION['stock'][$x][2],
-          $_SESSION['stock'][$x][3]
+          $_SESSION['stock'][0], //商品名
+          $_SESSION['stock'][1], //単価
+          $_SESSION['stock'][2], //基数
+          $_SESSION['stock'][3]  //id
         ));
       }
-  }
+
   unset($_SESSION['stock']);
 
   header('Location: add.php');
   exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -57,34 +58,22 @@ if (!empty($_POST)) {
               <th>基数</th>
               <th>担当業者名</th>
             </tr>
-              <?php $tradersData = $db->query('SELECT trader_name FROM traders');
-              while ($traderData = $tradersData->fetch()) {
-                $traderId[] = $traderData[0];
-              }
-              ?>
-            <?php for ($x = 0; $x < 5; $x++): ?>
-              <?php if(isset($_SESSION['stock'][$x])): ?>
+              <?php if(isset($_SESSION['stock'])): ?>
               <tr>
                 <td>
-                <p><?php print(htmlspecialchars($_SESSION['stock'][$x][0], ENT_QUOTES)); ?></p>
+                <p><?php print(htmlspecialchars($_SESSION['stock'][0], ENT_QUOTES)); ?></p>
               </td>
               <td>
-                <p><?php print(htmlspecialchars($_SESSION['stock'][$x][1], ENT_QUOTES)); ?></p>
+                <p><?php print(htmlspecialchars($_SESSION['stock'][1], ENT_QUOTES)); ?></p>
               </td>
               <td>
-                <p><?php print(htmlspecialchars($_SESSION['stock'][$x][2], ENT_QUOTES)); ?></p>
+                <p><?php print(htmlspecialchars($_SESSION['stock'][2], ENT_QUOTES)); ?></p>
               </td>
               <td>
-                <?php
-                $traderNumber = $_SESSION['stock'][$x][3] - 1;
-                print(htmlspecialchars($traderId[$traderNumber], ENT_QUOTES));
-                ?>
-                <p>
-                </p>
+                <p><?php print(htmlspecialchars($_SESSION['stock'][4], ENT_QUOTES)); ?></p>
               </td>
               </tr>
               <?php endif; ?>
-            <?php endfor; ?>
           </table>
           <div class="add_check-btn">
             <a href="add.php" >戻る</a>

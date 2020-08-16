@@ -10,18 +10,24 @@
 
   //入力されていない項目があったら$_SESSIONへの代入をやめる
   if (!empty($_POST)) {
-    for ($x = 0; $x < 5; $x++) {
-      if ($_POST["stock_name$x"] == '' && $_POST["price$x"] == '' && $_POST["radix$x"] == '') {
+    //エラーチェック
+    if ($_POST["stock_name"] == '' && $_POST["price"] == '' && $_POST["radix"] == '') {
+      $error = 'blank';
+    } elseif ($_POST["stock_name"] == '' || $_POST["price"] == '' || $_POST["radix"] == '') {
+      $error = 'blank';       
+    } else {
+    //$_POSTで渡されたidからtrader_nameを取得する
+        $traderId = $_POST['trader_id'];
+        $traderName = $db->prepare('SELECT trader_name FROM traders WHERE id=:id');
+        $traderName->bindValue(':id', $traderId, PDO::PARAM_INT);
+        $traderName->execute();
+        $name = $traderName->fetch();
 
-        break;
-      } elseif ($_POST["stock_name$x"] == '' || $_POST["price$x"] == '' || $_POST["radix$x"] == '') {
-        $error = 'blank';
-        break;
-      } else {
-        $stock = [$_POST["stock_name$x"], $_POST["price$x"], $_POST["radix$x"], $_POST["trader_name$x"]];
-        $_SESSION['stock'][] = $stock;
+    //$_POSTを$_SESSIONにいれる     
+        $stock = [$_POST["stock_name"], $_POST["price"], $_POST["radix"], $_POST["trader_id"], $name['trader_name']];
+        $_SESSION['stock'] = $stock;
       }
-    }
+
     if (!empty($_SESSION['stock'])) {
       header('Location: add_check.php');
       exit();
@@ -50,26 +56,20 @@
   </tr>
 <!-- 入力用テーブルの作成 -->
 <form action="" method="post">
-  <?php 
-    for ($i = 0; $i < 5; $i++):
-      ?>
       <tr>
-        <td><input type="text" name="stock_name<?php echo $i ?>"></td>
-        <td><input type="text" name="price<?php echo $i ?>"></td>
-        <td><input type="text" name="radix<?php echo $i ?>"></td>
-        <td><select class="trader_name" name="trader_name<?php echo $i ?>" id="">
+        <td><input type="text" name="stock_name"></td>
+        <td><input type="text" name="price"></td>
+        <td><input type="text" name="radix"></td>
+        <td><select class="trader_id" name="trader_id">
         <?php
-          $y = 1;
-          $traders = $db->query('SELECT trader_name FROM traders');
+          $traders = $db->query('SELECT id, trader_name FROM traders');
           $traders->execute();
           while ($trader = $traders->fetch()) {
-            echo '<option value="' . $y . '">' . $trader[0] . '</option>';
-            $y++;
+            echo '<option value="' . $trader[0] . '">' . $trader[1] . '</option>';
           }
-        ?>
+          ?>
         </select></td>
       </tr>
-  <?php endfor; ?>
 </table>
 <div class="add-btn">
     <?php if (isset($error) && $error === 'blank'): ?>

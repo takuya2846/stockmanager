@@ -4,10 +4,15 @@ require('connect.php');
 
 // $_POSTの確認
 if (!empty($_POST)) {
-    print_r($_POST);
+  //$_POSTの値を分割する
+    $result = array_chunk($_POST, 2);
+    $afRadix = $db->prepare('UPDATE stocks SET radix=:radix WHERE id=:id');
+    for ($y = 0; $y < count($_POST); $y++) {
+      $afRadix->bindParam(':id', $result[$y][0], PDO::PARAM_INT);
+      $afRadix->bindParam(':radix', $result[$y][1], PDO::PARAM_INT);
+      $afRadix->execute();
+  }
 }
-
-
 
 ?>
 
@@ -41,8 +46,8 @@ if (!empty($_POST)) {
         <?php $x = 0; ?>
         <?php while ($stock = $stocks->fetch()): ?>
           <tr>
-          <td><input type="hidden" name="id<?php echo($x) ?>" value="<?php echo($stock['id']) ?>"><p><?php print($stock['id']); ?></p></td>
-            <td><?php print($stock['id']); ?></td>
+            <!-- type属性をhiddenにしてIDの値を送信する様にする。inputの外でDBより取得したIDを表示させる -->
+            <td><input type="hidden" name="id<?php echo($x) ?>" value="<?php print($stock['id']); ?>"><?php print($stock['id']); ?></td>
             <td><?php print($stock['stock_name']); ?></td>
             <td><?php print($stock['price']); ?></td>
             <td><?php print($stock['radix']); ?></td>
@@ -54,7 +59,7 @@ if (!empty($_POST)) {
         <?php endwhile; ?>
       </table>
       <div class="check-btn-area">
-        <input class="check-btn" type="submit" name="after_radix-btn" value="確認">
+        <input class="check-btn" type="submit" value="確認">
       </div>
       </form>
     </main>
