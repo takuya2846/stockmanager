@@ -10,7 +10,7 @@
   </div>
   <div class="content-list">
     <ul>
-      <li><a href="index.php">在庫一覧</a></li>
+      <li><a href="stockmanager.php">在庫一覧</a></li>
       <li><a href="input.php">発注</a></li>
       <li><a href="radix.php">基数変更</a></li>
       <li><a href="add.php">追加</a></li>
